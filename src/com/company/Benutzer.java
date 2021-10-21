@@ -59,7 +59,7 @@ public class Benutzer {
         double sum = 0;
 
         for(Sport i : sport){
-            sum+=i.kalkuliereZeit();   /*Iterate through all the sports and use add the time in a "sum" counter */
+            sum+=i.kalkuliereZeit();                     /*Iterate through all the sports and use add the time in a "sum" counter */
         }
         return sum;     /*Return the sum*/
     }
@@ -68,7 +68,7 @@ public class Benutzer {
     * Calculate the total time
     *   spent on a specific type of sport
     */
-    public double kalkuliereZeit(Sport s)   /*Give the sport type as a parameter*/
+    public double kalkuliereZeit(Sport s)                   /*Give the sport type as a parameter*/
     {
         double sum = 0;
 
