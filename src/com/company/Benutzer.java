@@ -2,20 +2,31 @@ package com.company;
 
 import java.util.List;
 
-public class Benutzer {
+/**
+* User Class (Benutzer)
+*/
 
+public class Benutzer {
+    /**
+    * Initialize the variables for the constructor
+    */
     String vorName;
     String nachName;
     List<Sport> sport;
-
-    //constructor
+    
+    /**
+    * Constructor
+    */
     public Benutzer(String vorName, String nachName, List<Sport> sport) {
         this.vorName = vorName;
         this.nachName = nachName;
         this.sport = sport;
     }
-
-    //getters and setters
+    
+    
+    /**
+    * Getters and setters
+    */
     public String getVorName() {
         return vorName;
     }
@@ -39,42 +50,49 @@ public class Benutzer {
     public void setSport(List<Sport> sport) {
         this.sport = sport;
     }
-
-    //calculate the total time of all sports
-    public double kalkuliereZeit()
-    {
+    
+    /**
+    * Calculate the total time
+    *   spent on all the types of sport
+    */
+    public double kalkuliereZeit(){
         double sum = 0;
 
-        for(Sport i : sport)
-        {
-            sum+=i.kalkuliereZeit();
+        for(Sport i : sport){
+            sum+=i.kalkuliereZeit();   /*Iterate through all the sports and use add the time in a "sum" counter */
         }
-        return sum;
+        return sum;     /*Return the sum*/
     }
-
-    //calculate the total time of a certain type of sport
-    public double kalkuliereZeit(Sport s)
+    
+    /**
+    * Calculate the total time
+    *   spent on a specific type of sport
+    */
+    public double kalkuliereZeit(Sport s)   /*Give the sport type as a parameter*/
     {
         double sum = 0;
 
-        for(Sport i : sport)
-        {
-            if(i.kalkuliereZeit() == s.kalkuliereZeit())
-            {
+        for(Sport i : sport){
+            
+            if(i.kalkuliereZeit() == s.kalkuliereZeit()){    /*This way we verify if the iterated sport from the list is the same type as param. */
                 sum+=i.kalkuliereZeit();
             }
         }
         return sum;
     }
 
+    
+    
+     /**
+    * Calculate the total time
+    *   and do the average
+    */
     public double kalkuliereDurschnittzeit()
     {
         double sum = 0;
         double count = 0;
 
-
-        for(Sport i : sport)
-        {
+        for(Sport i : sport){
             count++;
             sum+=i.kalkuliereZeit();
         }
