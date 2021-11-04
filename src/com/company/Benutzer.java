@@ -2,20 +2,32 @@ package com.company;
 
 import java.util.List;
 
+/**
+ * A class for the details of an user, as well as specific calculateTime methods
+ */
 public class Benutzer {
 
-    String vorName;
-    String nachName;
-    List<Sport> sport;
+    private String vorName;
+    private String nachName;
+    private List<Sport> sport;
 
-    //constructor
+
+    /**
+     * constructor
+     * @param vorName name of the user
+     * @param nachName surname of the user
+     * @param sport the list of sports he practices
+     */
     public Benutzer(String vorName, String nachName, List<Sport> sport) {
         this.vorName = vorName;
         this.nachName = nachName;
         this.sport = sport;
     }
 
-    //getters and setters
+    /**
+     * getters and setters
+     * @return the values
+     */
     public String getVorName() {
         return vorName;
     }
@@ -40,45 +52,57 @@ public class Benutzer {
         this.sport = sport;
     }
 
-    //calculate the total time of all sports
+
+    /**
+     * Calcultes the total time the user spends on sports
+     * @return total time of all sports
+     */
     public double kalkuliereZeit()
     {
-        double sum = 0;
+        double sumOfHours = 0;
 
         for(Sport i : sport)
         {
-            sum+=i.kalkuliereZeit();
+            sumOfHours+=i.kalkuliereZeit();
         }
-        return sum;
+        return sumOfHours;
     }
 
-    //calculate the total time of a certain type of sport
-    public double kalkuliereZeit(Sport s)
+    /**
+     * calculate the time spent on a certain type of sport
+     * @param sportType the specified type of sport
+     * @return time spent on a certain type of sport
+     */
+    public double kalkuliereZeit(Sport sportType)
     {
-        double sum = 0;
+        double sumOfHours = 0;
 
         for(Sport i : sport)
         {
-            if(i.kalkuliereZeit() == s.kalkuliereZeit())
+            if(i.kalkuliereZeit() == sportType.kalkuliereZeit())
             {
-                sum+=i.kalkuliereZeit();
+                sumOfHours+=i.kalkuliereZeit();
             }
         }
-        return sum;
+        return sumOfHours;
     }
 
+    /**
+     * Calculate average time spent on sports
+     * @return average time spent on sports
+     */
     public double kalkuliereDurschnittzeit()
     {
-        double sum = 0;
-        double count = 0;
+        double sumOfHours = 0;
+        double countOfSports = 0;
 
 
         for(Sport i : sport)
         {
-            count++;
-            sum+=i.kalkuliereZeit();
+            countOfSports++;
+            sumOfHours+=i.kalkuliereZeit();
         }
-        return sum/count;
+        return sumOfHours/countOfSports;
     }
 
 
